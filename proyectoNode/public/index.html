@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<!-- Enlaces a bootstrap-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+		<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+		crossorigin="anonymous"></script>
+	<style type="text/css">
+		body {
+			margin-left: 10px;
+		}
+
+		form, 
+		#resultadoBusqueda {
+			display: none;
+		}
+
+		#formularios {
+			margin-top: 60px;
+		}
+	</style>
+	<title>Talleres estevez</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">Talleres estevez</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						Productos
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#" id="mnuAltaRegistroMantenimiento">Alta de registroMantenimiento</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+
+						<li><a class="dropdown-item" href="#" id="mnuBuscarRegistroMantenimiento">Buscar un registroMantenimiento</a></li>
+						<li><a class="dropdown-item" href="#" id="mnuListadoRegistroMantenimiento">Listado de registroMantenimientos</a></li>
+						<li><a class="dropdown-item" href="#" id="mnuListadoPorVehiculo">Listado de registroMantenimientos por vehiculo</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						Vehiculos de registroMantenimientos
+					</a>
+					<ul class="dropdown-menu">
+						<li><a class="dropdown-item" href="#" id="mnuAltaVehiculo">Alta de vehiculos de registroMantenimientos</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="#" id="mnuListadoVehiculo">Listado de vehiculos de registroMantenimientos</a></li>
+					</ul>
+				</li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+	
+	<div class="container" id="formularios">
+		<div class="row">
+			<form class="form-horizontal" name="frmListadoVehiculo" id="frmListadoVehiculo">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Listado de registroMantenimientos por vehiculo</legend>
+					
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstVehiculo">Vehiculo</label>
+						<div class="col-xs-4">
+							<select  class="form-select" name="lstVehiculo" id="lstVehiculo">
+
+							</select>
+						</div>
+					</div>
+					
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarListadoPorVehiculo"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarListadoPorVehiculo" name="btnAceptarListadoPorVehiculo"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<form class="form-horizontal" name="frmAltaVehiculo" id="frmAltaVehiculo">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta de vehiculo de registroMantenimiento</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtVehiculo">Vehiculo</label>
+						<div class="col-xs-4">
+							<input id="txtVehiculo" name="txtVehiculo" placeholder="Nombre del vehiculo"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtDescripcion">Descripcion</label>
+						<div class="col-xs-4">
+							<input id="txtDescripcion" name="txtDescripcion" placeholder="Descripción del vehiculo" class="form-control input-md"
+								type="text">
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaVehiculo"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaVehiculo" name="btnAceptarAltaVehiculo"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>
+			<form class="form-horizontal" name="frmBuscarRegistroMantenimiento" id="frmBuscarRegistroMantenimiento">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Buscar un registroMantenimiento</legend>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtIdRegistroMantenimiento">Id RegistroMantenimiento</label>
+						<div class="col-xs-4">
+							<input id="txtIdRegistroMantenimiento" name="txtIdRegistroMantenimiento" placeholder="Id del registroMantenimiento"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+	
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnBuscarRegistroMantenimiento"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnBuscarRegistroMantenimiento" name="btnBuscarRegistroMantenimiento"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+				</fieldset>
+			</form>			
+			<form class="form-horizontal" name="frmModificarRegistroMantenimiento" id="frmModificarRegistroMantenimiento">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Modificar registroMantenimiento</legend>
+					
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModIdRegistroMantenimiento">ID RegistroMantenimiento</label>
+						<div class="col-xs-4">
+							<input id="txtModIdRegistroMantenimiento" name="txtModIdRegistroMantenimiento" class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModNombre">Nombre del registroMantenimiento</label>
+						<div class="col-xs-4">
+							<input id="txtModNombre" name="txtModNombre" class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModDescripcion">Descripción</label>
+						<div class="col-xs-4">
+							<input id="txtModDescripcion" name="txtModDescripcion" class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Number input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtModPrecio">Precio</label>
+						<div class="col-xs-4">
+							<input id="txtModPrecio" name="txtModPrecio" class="form-control input-md" type="number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstModVehiculo">Vehiculo</label>
+						<div class="col-xs-4">
+							<select class="form-select" name="lstModVehiculo" id="lstModVehiculo"></select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarModRegistroMantenimiento"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarModRegistroMantenimiento" name="btnAceptarModRegistroMantenimiento"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+
+			<form class="form-horizontal" name="frmAltaRegistroMantenimiento" id="frmAltaRegistroMantenimiento">
+				<fieldset>
+					<!-- Form Name -->
+					<legend>Alta de registroMantenimiento</legend>
+					
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaNombre">Nombre del registroMantenimiento</label>
+						<div class="col-xs-4">
+							<input id="txtAltaNombre" name="txtAltaNombre"
+								class="form-control input-md" type="text">
+
+						</div>
+					</div>
+					<!-- Text input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaDescripcion">Descripción</label>
+						<div class="col-xs-4">
+							<input id="txtAltaDescripcion" name="txtAltaDescripcion"
+								class="form-control input-md" type="text">
+						</div>
+					</div>
+					<!-- Number input-->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="txtAltaPrecio">Precio</label>
+						<div class="col-xs-4">
+							<input id="txtAltaPrecio" name="txtAltaPrecio" 
+								class="form-control input-md" type="number">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="lstAltaVehiculo">Vehiculo</label>
+						<div class="col-xs-4">
+							<select  class="form-select" name="lstAltaVehiculo" id="lstAltaVehiculo">
+
+							</select>
+						</div>
+					</div>
+					<!-- Button -->
+					<div class="form-group">
+						<label class="col-xs-4 control-label" for="btnAceptarAltaRegistroMantenimiento"></label>
+						<div class="col-xs-4">
+							<input type="button" id="btnAceptarAltaRegistroMantenimiento" name="btnAceptarAltaRegistroMantenimiento"
+								class="btn btn-primary" value="Aceptar" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+
+	<div class="container" id="resultadoBusqueda"></div>
+	<div class="container" id="listados"></div>
+	
+	<script type="text/javascript" src="js/ajax.js"></script>
+	<script type="text/javascript" src="js/objetos.js"></script>
+	<script type="text/javascript" src="js/codigo.js"></script>
+</body>
+
+</html>

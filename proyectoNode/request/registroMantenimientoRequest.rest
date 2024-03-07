@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/registroMantenimientos
+
+###
+
+GET http://localhost:3000/api/registroMantenimientos?listado=true
+
+
+### 
+
+GET http://localhost:3000/api/registroMantenimientos/2?relations=true
+
+### 
+
+GET http://localhost:3000/api/registroMantenimientos/2
